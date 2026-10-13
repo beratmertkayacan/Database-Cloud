@@ -1,0 +1,22 @@
+# Editor ve yerel ayarlar
+.vscode/
+.idea/
+*.code-workspace
+
+# SQLTools oturum dosyaları
+*.session.sql
+
+# Ortam değişkenleri ve gizli bilgiler
+.env
+.env.*
+*.pem
+
+# Veritabanı yedekleri ve geçici çıktılar
+*.log
+*.dump
+*.bak
+tmp/
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
