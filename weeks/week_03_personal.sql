@@ -165,4 +165,28 @@ SELECT salary, last_name
 FROM employees
 WHERE salary > (select avg(salary) from employees);
 
+select *
+FROM EMPLOYEES;
 
+SELECT *
+FROM DEPARTMENTS;
+
+SELECT department_id, COUNT(*) AS emp_count
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 5;
+
+
+SELECT e.last_name, d.department_name, e.department_id
+FROM employees e
+JOIN departments d N e.department_id = d.department_id
+WHERE department_name = "Sales";
+
+
+SELECT last_name, salary
+FROM employees
+WHERE salary > (
+    SELECT salary
+    FROM employees
+    WHERE last_name = 'Abel'
+);

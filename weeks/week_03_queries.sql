@@ -8,7 +8,7 @@ SELECT last_name, job_id, salary, commission_pct
 FROM   employees;
 SELECT last_name AS name, commission_pct comm
 FROM   employees;
-SET sql_mode=(SELECT CONCAT(@@sql_mode,',PIPES_AS_CONCAT')); 
+SET sql_mode=(SELECT CONCAT(@@sql_mode,',PIPES_AS_CONCAT'));
 SELECT	last_name|| first_name AS "Employees" FROM 	employees;
 SELECT last_name ||' is a '||job_id AS "Employee Details" FROM   employees;
 SELECT department_id FROM   employees;
@@ -74,7 +74,7 @@ OR     job_id LIKE '%MAN%' ;
 
 SELECT last_name, job_id
 FROM   employees
-WHERE  job_id 
+WHERE  job_id
        NOT IN ('IT_PROG', 'ST_CLERK', 'SA_REP') ;
 
 SELECT last_name, job_id, salary
@@ -106,8 +106,8 @@ SELECT last_name, department_id, salary
 FROM   employees
 ORDER BY department_id, salary DESC;
 
-SELECT employee_id, CONCAT(first_name, last_name) NAME, 
-       job_id, LENGTH (last_name), 
+SELECT employee_id, CONCAT(first_name, last_name) NAME,
+       job_id, LENGTH (last_name),
        INSTR(last_name, 'a') "Contains 'a'?"
 FROM   employees
 WHERE  SUBSTR(job_id, 4) = 'REP';
@@ -138,7 +138,7 @@ FROM   employees;
 SELECT   department_id, job_id, SUM(salary)
 FROM     employees
 WHERE	 department_id > 40
-GROUP BY department_id, job_id 
+GROUP BY department_id, job_id
 ORDER BY department_id;
 
 
@@ -152,7 +152,7 @@ SELECT   department_id, AVG(salary)
 FROM     employees
 WHERE    AVG(salary) > 8000
 GROUP BY department_id;
---  Should give an error 
+--  Should give an error
 
 
 
@@ -171,7 +171,7 @@ FROM   departments
 NATURAL JOIN locations ;
 
 
-SELECT l.city, d.department_name 
+SELECT l.city, d.department_name
 FROM   locations l JOIN departments d
 USING (location_id)
 WHERE d.location_id = 1400;
@@ -186,7 +186,7 @@ ON   (e.department_id = d.department_id) ;
 
 SELECT last_name, department_name
 FROM   employees
-CROSS JOIN departments 
+CROSS JOIN departments
 ON department_name;
 
 
@@ -201,7 +201,7 @@ WHERE  salary >
 
 SELECT last_name, job_id, salary
 FROM   employees
-WHERE  job_id =  
+WHERE  job_id =
                 (SELECT job_id
                  FROM   employees
                  WHERE  last_name = 'Taylor')
@@ -244,4 +244,7 @@ SET     department_id  =  (SELECT department_id
 WHERE   job_id         =  (SELECT job_id
                            FROM employees
                            WHERE employee_id = 200);
+
+
+
 
